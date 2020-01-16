@@ -1,7 +1,13 @@
 // Run SASS: sass --watch ./src/App.scss ./src/App.css
 
 .App {
-    display: flex;
+    header {
+        display: flex;
+        justify-content: center;
+    }
+    .wrapper {
+        display: flex;
+    }
 }
 
 .List {
@@ -13,5 +19,12 @@
         width: 80vw;
         height: 100vh;
         font-size: 24px;
+    }
+}
+
+.AddNote {
+    input {
+        width: 200px;
+        height: 25px;
     }
 }

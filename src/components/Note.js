@@ -4,7 +4,7 @@ import '../App.css';
 function Note(props) {
   return (
     <div className='Note'>
-        <div contenteditable="true">{props.selectedNote}</div>
+        <div contentEditable="true">{props.selectedNote}</div>
     </div>
   );
 }
