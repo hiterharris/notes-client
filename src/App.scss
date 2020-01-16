@@ -1,0 +1,17 @@
+// Run SASS: sass --watch ./src/App.scss ./src/App.css
+
+.App {
+    display: flex;
+}
+
+.List {
+    width: 20vw;
+}
+
+.Note {
+    textarea {
+        width: 80vw;
+        height: 100vh;
+        font-size: 24px;
+    }
+}

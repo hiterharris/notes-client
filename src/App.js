@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import { notesData } from './data/notesData';
+import List from './components/List';
+import Note from './components/Note';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [note] = useState(notesData);
+    const [selectedNote, setSelectedNote] = useState(notesData[1].text)
+    return (
+        <div className='App'>
+            <div className='List'>
+                <List note={note} setSelectedNote={setSelectedNote} />
+            </div>
+            <div className='Note'>
+                <Note selectedNote={selectedNote} />
+            </div>
+        </div>
+    );
 }
 
 export default App;
