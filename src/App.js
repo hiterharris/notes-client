@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-// import { notesData } from './data/notesData';
 import List from './components/List';
 import Note from './components/Note';
 import Nav from './components/Nav';
@@ -18,6 +17,7 @@ const App = () => {
                 setSelectedNote(response.data[1].text)
             })
     }, [0]);
+    
 
     const addNote = title => {
         const newNote = {
