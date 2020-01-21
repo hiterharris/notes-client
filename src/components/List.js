@@ -1,12 +1,17 @@
 import React from 'react';
 import '../App.css';
 
-function List({notes, setSelectedNote}) {
+function List({notes, setSelectedNote, selected, toggleSelected}) {
   return (
-      <div className='list-container'>
+      <div className='List'>
         {notes.map( (item) => {
           return (
-            <div key={item.id} className="list-item" onClick={() => setSelectedNote(item.text)}>
+            <div
+              key={item.id}
+              className={selected ? 'list-item-selected' : 'list-item'}
+              onClick={() => setSelectedNote(item.text)}
+              onClick={toggleSelected}
+              >
               <h2>{item.title}</h2>
               <p>{item.date}</p>
             </div>

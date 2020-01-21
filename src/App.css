@@ -4,21 +4,32 @@
 }
 .App .wrapper {
   display: flex;
+  background-color: #F9F9F7;
 }
-
-.List {
+.App .wrapper .list-container {
   width: 20vw;
 }
-
-.Note div {
+.App .wrapper .note-container div {
   width: 80vw;
   height: 100vh;
   font-size: 24px;
 }
 
-.AddNote input {
+.Nav .AddNote input {
   width: 200px;
   height: 25px;
+}
+
+.Note {
+  border: 0.5px solid lightgrey;
+}
+
+.List .list-item {
+  overflow: hidden;
+}
+.List .list-item-selected {
+  overflow: hidden;
+  background-color: #FBDF8C;
 }
 
 /*# sourceMappingURL=App.css.map */
