@@ -4,7 +4,7 @@ import '../App.css';
 function Search(props) {
     return (
         <div className='AddNote'>
-            <form>
+            <form onSubmit={props.addNote} reset='true'>
                 <input 
                     id="title"
                     name='title'

@@ -1,13 +1,14 @@
 // Run SASS: sass --watch ./src/App.scss ./src/App.css
 
 .App {
+    background-color: #F9F9F7;
+
     header {
         display: flex;
         justify-content: center;
     }
     .wrapper {
         display: flex;
-        background-color: #F9F9F7;
 
         .list-container {
             width: 20vw;
@@ -34,11 +35,17 @@
 
 .Note {
     border: .5px solid lightgrey;
+    div {
+        padding: 2%;
+    }
 }
 
 .List {
+    text-align: center;
+
     .list-item {
         overflow: hidden;
+        border: .5px solid lightgrey;
     }
     .list-item-selected {
         overflow: hidden;

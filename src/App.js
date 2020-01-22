@@ -7,26 +7,26 @@ import {useSelectedClass} from './hooks/useSelectedClass';
 import './App.css';
 
 const App = () => {
-    // Set notes from API request
+
+// Set notes from API request
     const [notes, setNotes] = useState([]);
     const [selectedNote, setSelectedNote] = useState([]);
     useEffect(() => {
         axios.get('http://localhost:3001/notes')
             .then(response => {
-                console.log(response.data);
                 setNotes(response.data);
                 setSelectedNote(response.data[1].text)
             })
     }, []);
 
-    // Toggle class to highlight selected note
+// Toggle class to highlight selected note
     const [selected, setSelected] = useSelectedClass('list-item');
     const toggleSelected = e => {
       e.preventDefault();
       setSelected(!selected);
     }
 
-    //  Updating notes from search input
+//  Updating notes from search input
     const [search, setSearch] = useState('');
     const updateSearch = (event) => {
         setSearch(event.target.value);
@@ -38,11 +38,23 @@ const App = () => {
         return note;
     });
 
-    // Rendering App
+// Add new note to notes array
+    const addNote = (e) => {
+        e.preventDefault();
+        const newNote = {
+            id: Date.now(),
+            title: e.target.title.value,
+            text: '',
+            date: 'January 22, 2020 at 11:11 AM'
+        }
+        setNotes([...notes, newNote]);
+    }
+
+// Rendering App
     return (
         <div className='App'>
             <header>
-                <Nav search={search} updateSearch={updateSearch.bind(this)} />
+                <Nav search={search} updateSearch={updateSearch.bind(this)} addNote={addNote} />
             </header>
             <div className="wrapper">
                 <div className='list-container'>

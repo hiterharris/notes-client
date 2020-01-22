@@ -5,7 +5,7 @@ import '../App.css';
 function Nav(props) {
   return (
     <div className='Nav'>
-        <Search search={props.search} updateSearch={props.updateSearch} />
+        <Search search={props.search} updateSearch={props.updateSearch} addNote={props.addNote} />
     </div>
   );
 }

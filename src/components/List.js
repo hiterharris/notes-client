@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 
-function List({notes, setSelectedNote, selected, toggleSelected, search, filteredNotesList}) {
+function List({notes, setSelectedNote, selected, search, filteredNotesList}) {
   if(search.length > 0) {
     return (
       <div className='List'>
@@ -11,7 +11,6 @@ function List({notes, setSelectedNote, selected, toggleSelected, search, filtere
               key={item.id}
               className={selected ? 'list-item-selected' : 'list-item'}
               onClick={() => setSelectedNote(item.text)}
-              onClick={toggleSelected}
               >
               <h2>{item.title}</h2>
               <p>{item.date}</p>
@@ -28,8 +27,7 @@ function List({notes, setSelectedNote, selected, toggleSelected, search, filtere
               <div
                 key={item.id}
                 className={selected ? 'list-item-selected' : 'list-item'}
-                onClick={() => setSelectedNote(item.text)}
-                onClick={toggleSelected}
+                onClick={() => (setSelectedNote(item.text))}
                 >
                 <h2>{item.title}</h2>
                 <p>{item.date}</p>

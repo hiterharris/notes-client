@@ -1,10 +1,12 @@
+.App {
+  background-color: #F9F9F7;
+}
 .App header {
   display: flex;
   justify-content: center;
 }
 .App .wrapper {
   display: flex;
-  background-color: #F9F9F7;
 }
 .App .wrapper .list-container {
   width: 20vw;
@@ -23,9 +25,16 @@
 .Note {
   border: 0.5px solid lightgrey;
 }
+.Note div {
+  padding: 2%;
+}
 
+.List {
+  text-align: center;
+}
 .List .list-item {
   overflow: hidden;
+  border: 0.5px solid lightgrey;
 }
 .List .list-item-selected {
   overflow: hidden;
