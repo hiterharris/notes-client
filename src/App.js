@@ -7,6 +7,7 @@ import {useSelectedClass} from './hooks/useSelectedClass';
 import './App.css';
 
 const App = () => {
+    // Set notes from API request
     const [notes, setNotes] = useState([]);
     const [selectedNote, setSelectedNote] = useState([]);
     useEffect(() => {
@@ -18,19 +19,26 @@ const App = () => {
             })
     }, []);
 
+    // Toggle class to highlight selected note
     const [selected, setSelected] = useSelectedClass('list-item');
     const toggleSelected = e => {
       e.preventDefault();
       setSelected(!selected);
-      // TODO: update class on single list item
     }
 
+    //  Updating notes from search input
     const [search, setSearch] = useState('');
     const updateSearch = (event) => {
         setSearch(event.target.value);
-        console.log(search);
      }
+    let filteredNotes = notes.filter((note) => {
+        return (note.title.indexOf(search) !== -1, note.text.indexOf(search) !== -1);
+    });
+    const filteredNotesList = filteredNotes.map(note => {
+        return note;
+    });
 
+    // Rendering App
     return (
         <div className='App'>
             <header>
@@ -38,7 +46,13 @@ const App = () => {
             </header>
             <div className="wrapper">
                 <div className='list-container'>
-                    <List notes={notes} setSelectedNote={setSelectedNote} selected={selected} toggleSelected={toggleSelected} />
+                    <List
+                        notes={notes}
+                        setSelectedNote={setSelectedNote}
+                        selected={selected}
+                        toggleSelected={toggleSelected}
+                        search={search}
+                        filteredNotesList={filteredNotesList} />
                 </div>
                 <div className='note-container'>
                     <Note selectedNote={selectedNote} />
