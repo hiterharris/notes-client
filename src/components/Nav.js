@@ -1,11 +1,11 @@
 import React from 'react';
-import AddNote from './AddNote';
+import Search from './Search';
 import '../App.css';
 
-function Nav(addNote, handleChanges) {
+function Nav(props) {
   return (
     <div className='Nav'>
-        <AddNote addNote={addNote} />
+        <Search search={props.search} updateSearch={props.updateSearch} />
     </div>
   );
 }

@@ -25,20 +25,16 @@ const App = () => {
       // TODO: update class on single list item
     }
 
-    const addNote = title => {
-        const newNote = {
-            id: Date.now(),
-            title: title,
-            date: Date.now(),
-            text: '',
-        };
-        setNotes([...notes, newNote]);
-    }
+    const [search, setSearch] = useState('');
+    const updateSearch = (event) => {
+        setSearch(event.target.value);
+        console.log(search);
+     }
 
     return (
         <div className='App'>
             <header>
-                <Nav addNote={addNote} />
+                <Nav search={search} updateSearch={updateSearch.bind(this)} />
             </header>
             <div className="wrapper">
                 <div className='list-container'>
