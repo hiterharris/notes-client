@@ -10,7 +10,7 @@ const App = () => {
 
 // Set notes from API request
     const [notes, setNotes] = useState([]);
-    const [selectedNote, setSelectedNote] = useState([]);
+    const [selectedNote, setSelectedNote] = useState();
     useEffect(() => {
         axios.get('http://localhost:3001/notes')
             .then(response => {
@@ -48,6 +48,7 @@ const App = () => {
             date: 'January 22, 2020 at 11:11 AM'
         }
         setNotes([...notes, newNote]);
+        setSelectedNote(newNote.text);
     }
 
 // Remove note from List
