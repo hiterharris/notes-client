@@ -17,12 +17,44 @@
   font-size: 24px;
 }
 
-.Nav .AddNote {
+.Nav {
+  display: flex;
+  background-color: #DCDCDC;
+  width: 100%;
+  border-radius: 5px;
+}
+.Nav .window-icons {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+}
+.Nav .window-icons img {
+  width: 10%;
+  height: 20%;
+  margin: 5%;
+}
+.Nav .action-container {
+  width: 50%;
   display: flex;
 }
+.Nav .action-container .action-icon {
+  background-color: #F6F6F6;
+  width: 80px;
+  height: 50px;
+  border-radius: 5px;
+  margin: 2%;
+}
+.Nav .AddNote {
+  width: 40%;
+  display: flex;
+  align-items: center;
+}
 .Nav .AddNote input {
-  width: 200px;
+  width: 300px;
   height: 25px;
+  border-radius: 10px;
+  border: none;
 }
 
 .Note {

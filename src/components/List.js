@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 
-function List({notes, setSelectedNote, selected, search, filteredNotesList, removeNote}) {
+function List({notes, setSelectedNote, selected, search, filteredNotesList, removeNote, toggleSelected}) {
   if(search.length > 0) {
     return (
       <div className='List'>
