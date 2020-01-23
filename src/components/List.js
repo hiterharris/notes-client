@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 
-function List({notes, setSelectedNote, selected, search, filteredNotesList}) {
+function List({notes, setSelectedNote, selected, search, filteredNotesList, removeNote}) {
   if(search.length > 0) {
     return (
       <div className='List'>
@@ -14,6 +14,7 @@ function List({notes, setSelectedNote, selected, search, filteredNotesList}) {
               >
               <h2>{item.title}</h2>
               <p>{item.date}</p>
+              <button onClick={() => removeNote(item.id)}>X</button>
             </div>
           );
         })}
@@ -31,6 +32,7 @@ function List({notes, setSelectedNote, selected, search, filteredNotesList}) {
                 >
                 <h2>{item.title}</h2>
                 <p>{item.date}</p>
+                <button onClick={() => removeNote(item)}>X</button>
               </div>
             );
           })}

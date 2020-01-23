@@ -2,6 +2,13 @@ import React from 'react';
 import '../App.css';
 
 function Search(props) {
+    const button = () => {
+        if(props.search.length > 0) {
+          return (
+            <button>Add Note</button>
+          );
+      }
+      }
     return (
         <div className='AddNote'>
             <form onSubmit={props.addNote} reset='true'>
@@ -12,6 +19,7 @@ function Search(props) {
                     value={props.search.title}
                     onChange={props.updateSearch}
                 />
+                {button()}
             </form>
         </div>
     );

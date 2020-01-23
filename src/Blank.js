@@ -7,7 +7,7 @@
             ...newNote,
             [e.target.name]: e.target.value,
         });
-        console.log(newNote);
+        // console.log(newNote);
     }
 
     // handleSubmit = e => {

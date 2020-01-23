@@ -50,6 +50,12 @@ const App = () => {
         setNotes([...notes, newNote]);
     }
 
+// Remove note from List
+    const removeNote = (item) => {
+        const remove = notes.filter(note => note.id !== item.id);
+        setNotes(remove);
+    }
+
 // Rendering App
     return (
         <div className='App'>
@@ -64,10 +70,12 @@ const App = () => {
                         selected={selected}
                         toggleSelected={toggleSelected}
                         search={search}
-                        filteredNotesList={filteredNotesList} />
+                        filteredNotesList={filteredNotesList}
+                        removeNote={removeNote}
+                    />
                 </div>
                 <div className='note-container'>
-                    <Note selectedNote={selectedNote} />
+                    <Note selectedNote={selectedNote} notes={notes} />
                 </div>
             </div>
         </div>

@@ -17,6 +17,9 @@
   font-size: 24px;
 }
 
+.Nav .AddNote {
+  display: flex;
+}
 .Nav .AddNote input {
   width: 200px;
   height: 25px;
