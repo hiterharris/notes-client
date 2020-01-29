@@ -1,7 +1,20 @@
 import React from 'react';
 import '../App.css';
+import trash from '../images/trash.png';
+import {useSelectedClass} from '../hooks/useSelectedClass';
 
-function List({notes, setSelectedNote, selected, search, filteredNotesList, removeNote, toggleSelected}) {
+function List({notes, selectedNote, setSelectedNote, search, filteredNotesList, removeNote}) {
+  const [selected, setSelected] = useSelectedClass(selectedNote);
+
+  const toggleSelected = () => {
+    setSelected(!selected);
+  }
+
+  const handleClick = (item) => {
+    setSelectedNote(item.text);
+    // toggleSelected(item);
+  }
+
   if(search.length > 0) {
     return (
       <div className='List'>
@@ -10,11 +23,14 @@ function List({notes, setSelectedNote, selected, search, filteredNotesList, remo
             <div
               key={item.id}
               className={selected ? 'list-item-selected' : 'list-item'}
-              onClick={() => setSelectedNote(item.text)}
+              onClick={() => handleClick(item)}
+
               >
               <h2>{item.title}</h2>
               <p>{item.date}</p>
-              <button onClick={() => removeNote(item.id)}>X</button>
+              <button className='delete' onClick={() => removeNote(item)}>
+                  <img src={trash} />   
+                </button>
             </div>
           );
         })}
@@ -28,11 +44,15 @@ function List({notes, setSelectedNote, selected, search, filteredNotesList, remo
               <div
                 key={item.id}
                 className={selected ? 'list-item-selected' : 'list-item'}
-                onClick={() => (setSelectedNote(item.text))}
-                >
-                <h2>{item.title}</h2>
-                <p>{item.date}</p>
-                <button onClick={() => removeNote(item)}>X</button>
+                onClick={() => handleClick(item)}
+              å>
+                <div className='item-info'>
+                  <h2>{item.title}</h2>
+                  <p>{item.date}</p>
+                </div>
+                <button className='delete' onClick={() => removeNote(item)}>
+                  <img src={trash} />   
+                </button>
               </div>
             );
           })}

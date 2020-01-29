@@ -1,4 +1,5 @@
 // Run SASS: sass --watch ./src/App.scss ./src/App.css
+
 .App {
     background-color: #F9F9F7;
 
@@ -6,16 +7,18 @@
         display: flex;
         justify-content: center;
     }
+
     .wrapper {
         display: flex;
 
         .list-container {
-            width: 20vw;
+            width: 25vw;
         }
-        
+
         .note-container {
+            width: 75vw;  
+
             div {
-                width: 80vw;
                 height: 100vh;
                 font-size: 24px;
             }
@@ -36,9 +39,7 @@
         margin-left: 25px;
 
         img {
-            width: 10%;
-            height: 20%;
-            margin: 5%;
+            width: 50%;
         }
     }
 
@@ -47,30 +48,58 @@
         display: flex;
 
         .action-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background-color: #F6F6F6;
             width: 80px;
             height: 50px;
             border-radius: 5px;
             margin: 2%;
+
+            img {
+                width: 40%;
+                opacity: 50%;
+            }
+        }
+
+        .check img {
+            opacity: 25%;
+        }
+
+        .lock img {
+            width: 30%;
+            height: 65%;
         }
     }
 
-    .AddNote {
-        width: 40%;
-        display: flex;
-        align-items: center;
+    .search-container {
+        width: 30%;
+    }
+}
 
-        input {
-            width: 300px;
-            height: 25px;
-            border-radius: 10px;
-            border: none;
-        }
+.Search {
+    display: flex;
+    align-items: center;
+
+    input {
+        width: 500px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+    }
+
+    input::placeholder {
+        font-size: 20px;
+        font-weight: 500;
+        display: flex;
+        text-align: center;
     }
 }
 
 .Note {
     border: .5px solid lightgrey;
+
     div {
         padding: 2%;
     }
@@ -78,15 +107,31 @@
 
 .List {
     text-align: center;
+    border: .5px solid lightgrey;
 
     .list-item {
+        display: flex;
         overflow: hidden;
         border: .5px solid lightgrey;
+        align-items: center;
+
+        .item-info {
+            width: 90%;
+        }
     }
+
     .list-item-selected {
-        overflow: hidden;
-        background-color: #FBDF8C;
+        background: lightgrey;
+    }
+
+    .delete {
+        background: none;
+        border: none;
+        width: 20%;
+        height: 20%;
+
+        img {
+            width: 35%;
+        }
     }
 }
-
-

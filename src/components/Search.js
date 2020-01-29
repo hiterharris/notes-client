@@ -5,17 +5,17 @@ function Search(props) {
     const button = () => {
         if(props.search.length > 0) {
           return (
-            <button>Add Note</button>
+            <button className='add-button'>Add Note</button>
           );
       }
       }
     return (
-        <div className='AddNote'>
+        <div className='Search'>
             <form onSubmit={props.addNote} reset='true'>
-                <input 
-                    id="title"
-                    name='title'
+                <input
                     type='text'
+                    placeholder='Search'
+                    name='title'
                     value={props.search.title}
                     onChange={props.updateSearch}
                 />

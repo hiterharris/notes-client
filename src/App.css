@@ -9,10 +9,12 @@
   display: flex;
 }
 .App .wrapper .list-container {
-  width: 20vw;
+  width: 25vw;
+}
+.App .wrapper .note-container {
+  width: 75vw;
 }
 .App .wrapper .note-container div {
-  width: 80vw;
   height: 100vh;
   font-size: 24px;
 }
@@ -30,31 +32,52 @@
   margin-left: 25px;
 }
 .Nav .window-icons img {
-  width: 10%;
-  height: 20%;
-  margin: 5%;
+  width: 50%;
 }
 .Nav .action-container {
   width: 50%;
   display: flex;
 }
 .Nav .action-container .action-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #F6F6F6;
   width: 80px;
   height: 50px;
   border-radius: 5px;
   margin: 2%;
 }
-.Nav .AddNote {
+.Nav .action-container .action-icon img {
   width: 40%;
+  opacity: 50%;
+}
+.Nav .action-container .check img {
+  opacity: 25%;
+}
+.Nav .action-container .lock img {
+  width: 30%;
+  height: 65%;
+}
+.Nav .search-container {
+  width: 30%;
+}
+
+.Search {
   display: flex;
   align-items: center;
 }
-.Nav .AddNote input {
-  width: 300px;
-  height: 25px;
+.Search input {
+  width: 500px;
+  height: 40px;
   border-radius: 10px;
   border: none;
+}
+.Search input::placeholder {
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  text-align: center;
 }
 
 .Note {
@@ -66,14 +89,28 @@
 
 .List {
   text-align: center;
-}
-.List .list-item {
-  overflow: hidden;
   border: 0.5px solid lightgrey;
 }
-.List .list-item-selected {
+.List .list-item {
+  display: flex;
   overflow: hidden;
-  background-color: #FBDF8C;
+  border: 0.5px solid lightgrey;
+  align-items: center;
+}
+.List .list-item .item-info {
+  width: 90%;
+}
+.List .list-item-selected {
+  background: lightgrey;
+}
+.List .delete {
+  background: none;
+  border: none;
+  width: 20%;
+  height: 20%;
+}
+.List .delete img {
+  width: 35%;
 }
 
 /*# sourceMappingURL=App.css.map */
