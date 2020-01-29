@@ -53,11 +53,16 @@ const App = () => {
         setNotes(remove);
     }
 
-// Rendering App
+// Render App
     return (
         <div className='App'>
             <header>
-                <Nav search={search} updateSearch={updateSearch.bind(this)} addNote={addNote} selectedNote={selectedNote} removeNote={removeNote} />
+                <Nav
+                    search={search}
+                    updateSearch={updateSearch.bind(this)}
+                    addNote={addNote} selectedNote={selectedNote}
+                    removeNote={removeNote}
+                />
             </header>
             <div className="wrapper">
                 <div className='list-container'>
@@ -70,7 +75,7 @@ const App = () => {
                     />
                 </div>
                 <div className='note-container'>
-                    <Note selectedNote={selectedNote} notes={notes} />
+                    <Note selectedNote={selectedNote} setSelectedNote={setSelectedNote} notes={notes} setNotes={setNotes} filteredNotesList={filteredNotesList} />
                 </div>
             </div>
         </div>

@@ -18,22 +18,22 @@ function Nav(props) {
         </div>
         <div className='action-container'>
           <div className='action-icon'>
-            <img src={sidebar} />
+            <img src={sidebar} alt='sidebar'/>
           </div>
           <div className='action-icon'>
-            <img src={icons} />
+            <img src={icons} alt='icons'/>
           </div>
           <div className='action-icon'>
-            <img src={trash} />        
+            <img src={trash} alt='trash'/>        
           </div>
           <div className='action-icon'>
-            <img src={newNote} />
+            <img src={newNote} alt='new-note'/>
           </div>
           <div className='action-icon check'>
-            <img src={check} />
+            <img src={check} alt='check'/>
           </div>
           <div className='action-icon lock'>
-            <img src={lock} />
+            <img src={lock} alt='lock'/>
           </div>
         </div>
         <Search className='search-container' search={props.search} updateSearch={props.updateSearch} addNote={props.addNote} />

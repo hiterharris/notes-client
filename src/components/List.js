@@ -12,7 +12,7 @@ function List({notes, selectedNote, setSelectedNote, search, filteredNotesList, 
 
   const handleClick = (item) => {
     setSelectedNote(item.text);
-    // toggleSelected(item);
+    toggleSelected();
   }
 
   if(search.length > 0) {
@@ -20,7 +20,7 @@ function List({notes, selectedNote, setSelectedNote, search, filteredNotesList, 
       <div className='List'>
         {filteredNotesList.map( (item) => {
           return (
-            <div
+          <div
             key={item.id}
             className={selected ? 'list-item-selected' : 'list-item'}
             onClick={() => handleClick(item)}
@@ -30,7 +30,7 @@ function List({notes, selectedNote, setSelectedNote, search, filteredNotesList, 
               <p>{item.date}</p>
             </div>
             <button className='delete' onClick={() => removeNote(item)}>
-              <img src={trash} />
+              <img src={trash} alt='trash'/>
             </button>
           </div>
           );
@@ -52,7 +52,7 @@ function List({notes, selectedNote, setSelectedNote, search, filteredNotesList, 
                   <p>{item.date}</p>
                 </div>
                 <button className='delete' onClick={() => removeNote(item)}>
-                  <img src={trash} />
+                  <img src={trash} alt='trash'/>
                 </button>
               </div>
             );

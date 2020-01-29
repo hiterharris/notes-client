@@ -1,17 +1,31 @@
 import React from 'react';
 import '../App.css';
 
-function Note(props) {
+const Note = props => {
+  const handleChange = e => {
+    e.preventDefault();
+    props.setSelectedNote(e.target.value);
+  } 
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.setSelectedNote(e.target.value);
+    console.log(props.selectedNote);
+  };
+
   if(props.notes.length === 0) {
     return (
       <div className='Note'>
-        <div contentEditable="true" suppressContentEditableWarning={true}>{props.notes.text}</div>
+        <textarea value={props.selectedNote} />
       </div>
     );
   } else {
       return(
         <div className='Note'>
-          <div contentEditable="true" suppressContentEditableWarning={true}>{props.selectedNote}</div>
+          <form onSubmit={handleSubmit}>
+            <textarea name='textarea' value={props.selectedNote} onChange={handleChange} />
+            <button>Save</button>
+          </form>
         </div>
       );
   }

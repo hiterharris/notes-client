@@ -83,7 +83,10 @@
 .Note {
   border: 0.5px solid lightgrey;
 }
-.Note div {
+.Note textarea {
+  width: 96%;
+  height: 100vh;
+  font-size: 24px;
   padding: 2%;
 }
 
@@ -101,7 +104,13 @@
   width: 90%;
 }
 .List .list-item-selected {
-  background: lightgrey;
+  display: flex;
+  overflow: hidden;
+  border: 0.5px solid lightgrey;
+  align-items: center;
+}
+.List .list-item-selected .item-info {
+  width: 90%;
 }
 .List .delete {
   background: none;
