@@ -26,7 +26,9 @@ const App = () => {
         setSearch(event.target.value);
      }
     let filteredNotes = notes.filter((note) => {
-        return (note.title.indexOf(search) !== -1, note.text.indexOf(search) !== -1);
+            const titleResults = note.title.indexOf(search) !== -1;
+            const textResults = note.text.indexOf(search) !== -1;
+        return (titleResults + textResults);
     });
     const filteredNotesList = filteredNotes.map(note => {
         return note;
@@ -38,7 +40,7 @@ const App = () => {
         const newNote = {
             id: Date.now(),
             title: e.target.title.value,
-            text: '',
+            text: e.target.title.value,
             date: 'January 22, 2020 at 11:11 AM'
         }
         setNotes([...notes, newNote]);

@@ -21,17 +21,18 @@ function List({notes, selectedNote, setSelectedNote, search, filteredNotesList, 
         {filteredNotesList.map( (item) => {
           return (
             <div
-              key={item.id}
-              className={selected ? 'list-item-selected' : 'list-item'}
-              onClick={() => handleClick(item)}
-
-              >
+            key={item.id}
+            className={selected ? 'list-item-selected' : 'list-item'}
+            onClick={() => handleClick(item)}
+          >
+            <div className='item-info'>
               <h2>{item.title}</h2>
               <p>{item.date}</p>
-              <button className='delete' onClick={() => removeNote(item)}>
-                  <img src={trash} />   
-                </button>
             </div>
+            <button className='delete' onClick={() => removeNote(item)}>
+              <img src={trash} />
+            </button>
+          </div>
           );
         })}
       </div>
@@ -45,13 +46,13 @@ function List({notes, selectedNote, setSelectedNote, search, filteredNotesList, 
                 key={item.id}
                 className={selected ? 'list-item-selected' : 'list-item'}
                 onClick={() => handleClick(item)}
-              å>
+              >
                 <div className='item-info'>
                   <h2>{item.title}</h2>
                   <p>{item.date}</p>
                 </div>
                 <button className='delete' onClick={() => removeNote(item)}>
-                  <img src={trash} />   
+                  <img src={trash} />
                 </button>
               </div>
             );
