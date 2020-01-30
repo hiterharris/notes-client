@@ -16,7 +16,7 @@ const Note = props => {
   if(props.notes.length === 0) {
     return (
       <div className='Note'>
-        <textarea value={props.selectedNote} />
+        <textarea value={props.selectedNote} onChange={handleChange} />
       </div>
     );
   } else {

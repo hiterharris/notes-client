@@ -5,11 +5,13 @@ import Nav from './components/Nav';
 import axios from 'axios';
 import './App.css';
 
+import {connect} from 'react-redux';
+
 const App = () => {
 
 // Set notes from API request
     const [notes, setNotes] = useState([]);
-    const [selectedNote, setSelectedNote] = useState();
+    const [selectedNote, setSelectedNote] = useState([]);
 
 // Setting notes, selectedNotes to server data
     useEffect(() => {
@@ -21,7 +23,7 @@ const App = () => {
     }, []);
 
 //  Updating notes from search input
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState([]);
     const updateSearch = (event) => {
         setSearch(event.target.value);
      }
@@ -82,4 +84,16 @@ const App = () => {
     );
 }
 
-export default App;
+const mapStateToProps = state => {
+    console.log(state);
+    return {
+        defaultNotes: state.notes,
+        defaultSelectedNote: state.selectedNote,
+        defaultSearch: state.search,
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    {}
+)(App);
