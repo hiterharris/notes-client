@@ -12,7 +12,7 @@ const App = () => {
 // Set notes from API request
     const [notes, setNotes] = useState([]);
     const [selectedNote, setSelectedNote] = useState([]);
-
+    const [newNote, setNewNote] = useState(notes);
 // Setting notes, selectedNotes to server data
     useEffect(() => {
         axios.get('http://localhost:3001/api/notes')
@@ -22,6 +22,8 @@ const App = () => {
                 setSelectedNote(response.data[1].text)
             })
     }, []);
+
+
 
 //  Updating notes from search input
     const [search, setSearch] = useState([]);
@@ -48,17 +50,17 @@ const App = () => {
         }
         setNotes([...notes, newNote]);
         setSelectedNote(newNote.text);
-    }
 
-    // axios.post('http://localhost:3001/api/notes', notes)
-    // .then(response => {
-    //     setNotes({
-    //         ...response.data
-    //     });
-    // })
-    // .catch(error => {
-    //     console.log(error);
-    // })
+        axios.post('http://localhost:3001/api/notes', newNote)
+        .then(response => {
+            setNewNote({
+                ...response.data
+            });
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
 
 
 // Remove note from List
