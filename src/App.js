@@ -50,6 +50,17 @@ const App = () => {
         setSelectedNote(newNote.text);
     }
 
+    // axios.post('http://localhost:3001/api/notes', notes)
+    // .then(response => {
+    //     setNotes({
+    //         ...response.data
+    //     });
+    // })
+    // .catch(error => {
+    //     console.log(error);
+    // })
+
+
 // Remove note from List
     const removeNote = (item) => {
         const remove = notes.filter(note => note.id !== item.id);

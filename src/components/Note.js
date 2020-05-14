@@ -1,7 +1,9 @@
 import React from 'react';
 import '../App.css';
 
+
 const Note = props => {
+
   const handleChange = e => {
     e.preventDefault();
     props.setSelectedNote(e.target.value);
@@ -24,7 +26,7 @@ const Note = props => {
         <div className='Note'>
           <form onSubmit={handleSubmit}>
             <textarea name='textarea' value={props.selectedNote} onChange={handleChange} />
-            <button>Save</button>
+            <button onSubmit={handleSubmit}>Save</button>
           </form>
         </div>
       );
