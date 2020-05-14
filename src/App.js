@@ -15,8 +15,9 @@ const App = () => {
 
 // Setting notes, selectedNotes to server data
     useEffect(() => {
-        axios.get('http://localhost:3001/notes')
+        axios.get('http://localhost:3001/api/notes')
             .then(response => {
+                console.log(response);
                 setNotes(response.data);
                 setSelectedNote(response.data[1].text)
             })
