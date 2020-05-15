@@ -21,8 +21,7 @@ const App = () => {
                 setNotes(response.data);
                 setSelectedNote(response.data[1].text)
             })
-    }, []);
-
+    }, [notes]);
 
 
 //  Updating notes from search input
@@ -65,8 +64,12 @@ const App = () => {
 
 // Remove note from List
     const removeNote = (item) => {
-        const remove = notes.filter(note => note.id !== item.id);
-        setNotes(remove);
+        // const remove = notes.filter(note => note.id !== item.id);
+        // setNotes(remove);
+        axios.delete(`http://localhost:3001/api/notes/${item.id}`)
+        .then(response => {
+            console.log(response);
+        })
     }
 
 // Render App
