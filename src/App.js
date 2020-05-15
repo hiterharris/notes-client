@@ -19,7 +19,7 @@ const App = () => {
             .then(response => {
                 console.log(response);
                 setNotes(response.data);
-                setSelectedNote(response.data[1].text)
+                setSelectedNote(response.data.text)
             })
     }, [notes]);
 
@@ -45,10 +45,8 @@ const App = () => {
             id: Date.now(),
             title: e.target.title.value,
             text: e.target.title.value,
-            date: 'January 22, 2020 at 11:11 AM'
+            date: Date.now()
         }
-        setNotes([...notes, newNote]);
-        setSelectedNote(newNote.text);
 
         axios.post('http://localhost:3001/api/notes', newNote)
         .then(response => {
@@ -61,11 +59,8 @@ const App = () => {
         })
     }
 
-
 // Remove note from List
     const removeNote = (item) => {
-        // const remove = notes.filter(note => note.id !== item.id);
-        // setNotes(remove);
         axios.delete(`http://localhost:3001/api/notes/${item.id}`)
         .then(response => {
             console.log(response);
