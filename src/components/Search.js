@@ -8,10 +8,10 @@ function Search(props) {
             <button className='add-button'>Add Note</button>
           );
       }
-      }
+    }
     return (
         <div className='Search'>
-            <form onSubmit={props.addNote} reset='true'>
+            <form onSubmit={props.addNote}>
                 <input
                     type='text'
                     placeholder='Search'

@@ -13,6 +13,7 @@ const App = () => {
     const [notes, setNotes] = useState([]);
     const [selectedNote, setSelectedNote] = useState([]);
     const [newNote, setNewNote] = useState(notes);
+    
 // Setting notes, selectedNotes to server data
     useEffect(() => {
         axios.get('http://localhost:3001/api/notes')
@@ -45,7 +46,7 @@ const App = () => {
             id: Date.now(),
             title: e.target.title.value,
             text: e.target.title.value,
-            date: Date.now()
+            date: new Date().toISOString()
         }
 
         axios.post('http://localhost:3001/api/notes', newNote)
