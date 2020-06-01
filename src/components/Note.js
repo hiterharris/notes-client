@@ -1,16 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../App.css';
+
 const Note = props => {
+  const [text, setText] = useState('');
 
   const handleChange = e => {
     e.preventDefault();
-    props.setSelectedNote(e.target.value);
+    setText(e.target.value);
+    console.log(text);
   } 
 
+  // Need to update notes.text onSubmit
   const handleSubmit = e => {
     e.preventDefault();
-    props.setSelectedNote(e.target.value);
-    console.log(props.selectedNote);
+    console.log(text);
   };
 
   if(props.notes.length === 0) {

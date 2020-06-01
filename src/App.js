@@ -18,10 +18,9 @@ const App = () => {
     useEffect(() => {
         axios.get('http://localhost:3001/api/notes')
             .then(response => {
-                console.log(response);
                 setNotes(response.data);
-                setSelectedNote(response.data.text)
-            })
+                setSelectedNote(response.data.text);
+            });
     }, [notes]);
 
 
@@ -59,6 +58,7 @@ const App = () => {
             console.log(error);
         })
     }
+
 
 // Remove note from List
     const removeNote = (item) => {

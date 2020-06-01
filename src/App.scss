@@ -1,5 +1,9 @@
 // Run SASS: sass --watch ./src/App.scss ./src/App.css
 
+* {
+    font-family: 'Roboto';
+}
+
 .App {
     background-color: #F9F9F7;
 
